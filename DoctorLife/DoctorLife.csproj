@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="BLL\**" />
+    <Compile Remove="Controller\**" />
+    <Compile Remove="DAL\**" />
+    <Content Remove="BLL\**" />
+    <Content Remove="Controller\**" />
+    <Content Remove="DAL\**" />
+    <EmbeddedResource Remove="BLL\**" />
+    <EmbeddedResource Remove="Controller\**" />
+    <EmbeddedResource Remove="DAL\**" />
+    <None Remove="BLL\**" />
+    <None Remove="Controller\**" />
+    <None Remove="DAL\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />
+    <PackageReference Include="Oracle.EntityFrameworkCore" Version="7.21.12" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
+</Project>
