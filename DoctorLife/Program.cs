@@ -1,4 +1,5 @@
 using DoctorLife.Config;
+using DoctorLife.DAL.Base;
 using Microsoft.EntityFrameworkCore;
 
 namespace DoctorLife

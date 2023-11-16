@@ -7,21 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="BLL\**" />
-    <Compile Remove="Controller\**" />
-    <Compile Remove="DAL\**" />
-    <Content Remove="BLL\**" />
-    <Content Remove="Controller\**" />
-    <Content Remove="DAL\**" />
-    <EmbeddedResource Remove="BLL\**" />
-    <EmbeddedResource Remove="Controller\**" />
-    <EmbeddedResource Remove="DAL\**" />
-    <None Remove="BLL\**" />
-    <None Remove="Controller\**" />
-    <None Remove="DAL\**" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
+    <PackageReference Include="FluentValidation" Version="11.8.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.8.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.13" />
     <PackageReference Include="Oracle.EntityFrameworkCore" Version="7.21.12" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />

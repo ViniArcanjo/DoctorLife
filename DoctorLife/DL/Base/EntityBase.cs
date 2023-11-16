@@ -1,8 +1,10 @@
-﻿namespace DoctorLife.DL.Base
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace DoctorLife.DL.Base
 {
     public abstract class EntityBase
     {
-        public long Id { get; set; }
-        public bool IsActive { get; set; }
+        [Column("ISACTIVE")]
+        public char IsActive { get; set; }
     }
 }
