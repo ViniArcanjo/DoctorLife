@@ -7,20 +7,20 @@ namespace DoctorLife.Controller
 {
     [ApiController]
     [Route("v1/[controller]")]
-    public class PatientController : ControllerBase
+    public class DoctorController : ControllerBase
     {
-        private readonly IPatientService _patientService;
+        private readonly IDoctorService _doctorService;
 
-        public PatientController(IPatientService patientService)
+        public DoctorController(IDoctorService doctorService)
         {
-            _patientService = patientService;
+            _doctorService = doctorService;
         }
 
         [HttpGet]
         [Route("GetAll")]
-        public ActionResult<List<Patient>> GetAll()
+        public ActionResult<List<Doctor>> GetAll()
         {
-            var response = _patientService.GetAll();
+            var response = _doctorService.GetAll();
 
             if (!response.Any())
             {
@@ -32,9 +32,9 @@ namespace DoctorLife.Controller
 
         [HttpGet]
         [Route("GetById")]
-        public ActionResult<Patient> Get(long id)
+        public ActionResult<Doctor> Get(long id)
         {
-            var response = _patientService.GetById(id);
+            var response = _doctorService.GetById(id);
 
             if (response == null)
             {

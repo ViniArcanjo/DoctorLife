@@ -22,11 +22,13 @@ namespace DoctorLife.Config
         {
             services.AddAutoMapper(typeof(ConfigMapper));
             services.AddScoped<IPatientService, PatientService>();
+            services.AddScoped<IDoctorService, DoctorService>();
         } 
 
         private static void ConfigureRepository(this IServiceCollection services)
         {
             services.AddScoped<IPatientRepository, PatientRepository>();
+            services.AddScoped<IDoctorRepository, DoctorRepository>();
         }
 
         private static void ConfigureValidation(this IServiceCollection services)

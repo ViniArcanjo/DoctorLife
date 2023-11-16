@@ -22,12 +22,7 @@ namespace DoctorLife.DAL
 
         public async Task<Patient> Create(Patient request)
         {
-            var patient = request;
-
-            Add(request);
-            await SaveAll();
-
-            return patient;
+            throw new NotImplementedException();
         }
     }
 }
