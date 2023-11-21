@@ -11,15 +11,22 @@ namespace DoctorLife.DL.Model
         public long PatientId { get; set; }
 
         [Column("NM_NAME")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [Column("CPF")]
-        public string Cpf { get; set; }
+        public string? Cpf { get; set; }
 
         [Column("BIRTHDAY")]
-        public DateTime BirthDay { get; set; }
+        public DateTime? BirthDay { get; set; }
 
         [Column("PROFILEPICURL")]
         public string? ProfilePicUrl { get; set; }
+
+        [Column("EMAIL")]
+        public string Email { get; set; }
+
+        //[Column("PASSWORD")]
+        [NotMapped]
+        public string Password { get; set; }
     }
 }

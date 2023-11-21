@@ -14,15 +14,22 @@ namespace DoctorLife.DAL
             return result;
         }
 
-        public Patient GetPatientById(long id)
+        public Patient? GetPatientById(long id)
         {
             var result = Get(patient => patient.PatientId == id).FirstOrDefault();
             return result;
         }
 
-        public async Task<Patient> Create(Patient request)
+        public Patient? GetPatientCredentials(string email, string password)
         {
-            throw new NotImplementedException();
+            var result = Get(patient => patient.Password == password && patient.Email.ToLower() == email.ToLower()).FirstOrDefault();
+
+            if (result != null)
+            {
+                result.Password = string.Empty;
+            }
+
+            return result;
         }
     }
 }

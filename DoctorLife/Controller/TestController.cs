@@ -5,20 +5,20 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorLife.Controller
 {
-    public class PatientController : BaseController
+    public class TestController : BaseController
     {
-        private readonly IPatientService _patientService;
+        private readonly ITestService _testService;
 
-        public PatientController(IPatientService patientService)
+        public TestController(ITestService testService)
         {
-            _patientService = patientService;
+            _testService = testService;
         }
 
         [HttpGet]
         [Route("GetAll")]
-        public ActionResult<List<Patient>> GetAll()
+        public ActionResult<IQueryable<Test>> GetAll()
         {
-            var response = _patientService.GetAll();
+            var response = _testService.GetAll();
 
             if (!response.Any())
             {
@@ -30,9 +30,9 @@ namespace DoctorLife.Controller
 
         [HttpGet]
         [Route("GetById")]
-        public ActionResult<Patient> Get(long id)
+        public ActionResult<Test> Get(long id)
         {
-            var response = _patientService.GetById(id);
+            var response = _testService.GetById(id);
 
             if (response == null)
             {

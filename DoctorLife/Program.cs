@@ -10,13 +10,12 @@ namespace DoctorLife
         {
             var builder = WebApplication.CreateBuilder(args);
 
-
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
             builder.Services.AddDbContext<Context>(options => options.UseOracle(builder.Configuration.GetConnectionString("Oracle")));
-            builder.Services.ConfigureScoped();
+            builder.Services.ConfigureScoped(builder.Configuration);
 
             var app = builder.Build();
 
@@ -29,7 +28,9 @@ namespace DoctorLife
             app.UseHttpsRedirection();
 
             app.UseAuthorization();
+            app.UseAuthorization();
 
+            
 
             app.MapControllers();
 

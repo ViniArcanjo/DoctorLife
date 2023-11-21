@@ -6,7 +6,7 @@ namespace DoctorLife.BLL.Interface
     public interface IPatientService
     {
         List<Patient> GetAll();
-        Patient GetById(long id);
-        Task<Patient> Create(CreatePatientRequest request);
+        Patient? GetById(long id);
+        Patient? GetCredentials(string email, string password);
     }
 }

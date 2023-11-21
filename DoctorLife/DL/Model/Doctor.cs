@@ -11,15 +11,22 @@ namespace DoctorLife.DL.Model
         public long DoctorId { get; set; }
 
         [Column("CRM")]
-        public string Crm { get; set; }
+        public string? Crm { get; set; }
 
         [Column("NM_NAME")]
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         [Column("EXPERTISE")]
-        public string Expertise { get; set; }
+        public string? Expertise { get; set; }
 
         [Column("PROFILEPICURL")]
         public string? ProfilePicUrl { get; set; }
+
+        [Column("EMAIL")]
+        public string Email { get; set; }
+
+        //[Column("PASSWORD")]
+        [NotMapped]
+        public string Password { get; set; }
     }
 }

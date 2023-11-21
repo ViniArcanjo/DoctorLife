@@ -23,15 +23,16 @@ namespace DoctorLife.BLL
             return result;
         }
 
-        public Doctor GetById(long id)
+        public Doctor? GetById(long id)
         {
             var result = _doctorRepository.GetDoctorById(id);
             return result;
         }
 
-        public Task<Doctor> Create(CreatePatientRequest request)
+        public Doctor? GetCredentials(string email, string password)
         {
-            throw new NotImplementedException();
+            var result = _doctorRepository.GetDoctorCredentials(email, password);
+            return result;
         }
     }
 }

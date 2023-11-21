@@ -11,18 +11,37 @@ namespace DoctorLife.DAL
         public List<Doctor> GetAllDoctors()
         {
             var result = GetAll().ToList();
+
+            foreach (var doctor in result)
+            {
+                doctor.Password = string.Empty;
+            }
+
             return result;
         }
 
-        public Doctor GetDoctorById(long id)
+        public Doctor? GetDoctorById(long id)
         {
             var result = Get(doctor => doctor.DoctorId == id).FirstOrDefault();
+
+            if (result != null)
+            {
+                result.Password = string.Empty;
+            }
+
             return result;
         }
 
-        public Task<Doctor> Create(Doctor request)
+        public Doctor? GetDoctorCredentials(string email, string password)
         {
-            throw new NotImplementedException();
+            var result = Get(doctor => doctor.Password == password && doctor.Email.ToLower() == email.ToLower()).FirstOrDefault();
+
+            if (result != null)
+            {
+                result.Password = string.Empty;
+            }
+
+            return result;
         }
     }
 }

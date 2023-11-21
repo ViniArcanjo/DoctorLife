@@ -5,6 +5,6 @@ namespace DoctorLife.DL.Base
     public abstract class EntityBase
     {
         [Column("ISACTIVE")]
-        public char IsActive { get; set; }
+        public char? IsActive { get; set; }
     }
 }

@@ -1,13 +1,11 @@
 ﻿using DoctorLife.BLL.Interface;
-using DoctorLife.DL.DTO.Request;
+using DoctorLife.Controller.Base;
 using DoctorLife.DL.Model;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorLife.Controller
 {
-    [ApiController]
-    [Route("v1/[controller]")]
-    public class DoctorController : ControllerBase
+    public class DoctorController : BaseController
     {
         private readonly IDoctorService _doctorService;
 

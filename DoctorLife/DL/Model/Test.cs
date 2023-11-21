@@ -1,21 +1,28 @@
 ﻿using DoctorLife.DL.Base;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DoctorLife.DL.Model
 {
     public class Test : EntityAuditBase
     {
         [Key]
+        [Column("TESTID")]
         public long TestId { get; set; }
 
-        public string Title { get; set; }
+        [Column("TITLE")]
+        public string? Title { get; set; }
 
-        public string Description { get; set; }
+        [Column("TEST_DESCRIPTION")]
+        public string? Description { get; set; }
 
-        public DateTime DateTime { get; set; }
+        [Column("TEST_DATE")]
+        public DateTime? TestDate { get; set; }
 
+        [Column("APPOINTMENTSID")]
         public long AppointmentId { get; set; }
 
-        public Appointment Appointment { get; set; }
+        [NotMapped]
+        public Appointment? Appointment { get; set; }
     }
 }

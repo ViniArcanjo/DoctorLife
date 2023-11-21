@@ -5,7 +5,7 @@ namespace DoctorLife.DAL.Interface
     public interface IDoctorRepository
     {
         List<Doctor> GetAllDoctors();
-        Doctor GetDoctorById(long id);
-        public Task<Doctor> Create(Doctor request);
+        Doctor? GetDoctorById(long id);
+        Doctor? GetDoctorCredentials(string email, string password);
     }
 }
