@@ -1,7 +1,6 @@
 using DoctorLife.Config;
 using DoctorLife.DAL.Base;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.OpenApi.Models;
 
 namespace DoctorLife
 {

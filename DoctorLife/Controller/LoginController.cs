@@ -32,7 +32,7 @@ namespace DoctorLife.Controller
 
             var token = _tokenService.GenerateToken(request);
 
-            return Ok(new { Token = token });
+            return Ok(new { User = user, Token = token });
         }
     }
 }

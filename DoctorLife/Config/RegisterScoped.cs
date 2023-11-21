@@ -1,13 +1,12 @@
-﻿using AMLRocketPyrex.Api.BLL.ConfigAutoMapper;
-using DoctorLife.BLL;
+﻿using DoctorLife.BLL;
 using DoctorLife.BLL.Interface;
+using DoctorLife.Config.Mapper;
 using DoctorLife.DAL;
 using DoctorLife.DAL.Interface;
 using DoctorLife.DL.DTO.Request;
 using DoctorLife.DL.Validation;
 using FluentValidation;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
@@ -24,7 +23,7 @@ namespace DoctorLife.Config
 
         private static void ConfigureServices(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddAutoMapper(typeof(ConfigMapper));
+            services.AddSingleton(MapperBuilder.Build());
             services.AddScoped<IPatientService, PatientService>();
             services.AddScoped<IDoctorService, DoctorService>();
             services.AddScoped<ITestService, TestService>();

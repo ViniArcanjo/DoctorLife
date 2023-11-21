@@ -1,34 +1,40 @@
-﻿using DoctorLife.BLL.Interface;
-using DoctorLife.DL.Base;
+﻿using AutoMapper;
+using DoctorLife.BLL.Interface;
+using DoctorLife.DL.DTO;
 using DoctorLife.DL.DTO.Request;
 
 namespace DoctorLife.BLL
 {
     public class LoginService : ILoginService
     {
+        private readonly IMapper _mapper;
         private readonly IPatientService _patientService;
         private readonly IDoctorService _doctorService;
 
-        public LoginService(IPatientService patientService, IDoctorService doctorService)
+        public LoginService(IMapper mapper, IPatientService patientService, IDoctorService doctorService)
         {
+            _mapper = mapper;
             _patientService = patientService;
             _doctorService = doctorService;
         }
 
-        public EntityAuditBase? ValidateUser(LoginRequest request)
+        public User? ValidateUser(LoginRequest request)
         {
             if (request.Role.ToString() == "Patient")
             {
-                var user = _patientService.GetCredentials(request.Email, request.Password);
+                var patient = _patientService.GetCredentials(request.Email, request.Password);
+                var user = _mapper.Map<User>(patient);
 
-                return user;
+                return user ?? null;
             }
 
             if (request.Role.ToString() == "Doctor")
             {
-                var user = _doctorService.GetCredentials(request.Email, request.Password);
+                var doctor = _doctorService.GetCredentials(request.Email, request.Password);
 
-                return user;
+                var user = _mapper.Map<User>(doctor);
+
+                return user ?? null;
             }
 
             return null;
