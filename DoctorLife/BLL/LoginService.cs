@@ -1,7 +1,6 @@
 ﻿using DoctorLife.BLL.Interface;
 using DoctorLife.DL.Base;
 using DoctorLife.DL.DTO.Request;
-using Microsoft.AspNetCore.Mvc;
 
 namespace DoctorLife.BLL
 {

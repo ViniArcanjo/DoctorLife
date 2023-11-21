@@ -5,7 +5,7 @@ namespace DoctorLife.Controller.Base
 {
     [ApiController]
     [Route("api/v1/doctorlife/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class BaseController : ControllerBase
     {
     }
