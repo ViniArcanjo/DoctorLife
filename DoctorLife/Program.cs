@@ -1,4 +1,4 @@
-using DoctorLife.Config;
+using DoctorLife.API.Config;
 using DoctorLife.DAL.Base;
 using Microsoft.EntityFrameworkCore;
 

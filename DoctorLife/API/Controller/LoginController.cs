@@ -3,7 +3,7 @@ using DoctorLife.DL.DTO.Request;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DoctorLife.Controller
+namespace DoctorLife.API.Controller
 {
     [ApiController]
     [Route("api/v1/doctorlife/[controller]")]

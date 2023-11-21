@@ -1,6 +1,6 @@
-﻿using DoctorLife.BLL;
+﻿using DoctorLife.API.Config.Mapper;
+using DoctorLife.BLL;
 using DoctorLife.BLL.Interface;
-using DoctorLife.Config.Mapper;
 using DoctorLife.DAL;
 using DoctorLife.DAL.Interface;
 using DoctorLife.DL.DTO.Request;
@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 
-namespace DoctorLife.Config
+namespace DoctorLife.API.Config
 {
     public static class RegisterScoped
     {

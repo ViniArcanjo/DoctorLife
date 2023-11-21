@@ -1,9 +1,9 @@
-﻿using DoctorLife.BLL.Interface;
-using DoctorLife.Controller.Base;
+﻿using DoctorLife.API.Controller.Base;
+using DoctorLife.BLL.Interface;
 using DoctorLife.DL.Model;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DoctorLife.Controller
+namespace DoctorLife.API.Controller
 {
     public class PatientController : BaseController
     {

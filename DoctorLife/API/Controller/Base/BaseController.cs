@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DoctorLife.Controller.Base
+namespace DoctorLife.API.Controller.Base
 {
     [ApiController]
     [Route("api/v1/doctorlife/[controller]")]

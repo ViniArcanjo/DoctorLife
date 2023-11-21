@@ -1,24 +1,24 @@
-﻿using DoctorLife.BLL.Interface;
-using DoctorLife.Controller.Base;
+﻿using DoctorLife.API.Controller.Base;
+using DoctorLife.BLL.Interface;
 using DoctorLife.DL.Model;
 using Microsoft.AspNetCore.Mvc;
 
-namespace DoctorLife.Controller
+namespace DoctorLife.API.Controller
 {
-    public class AppointmentController : BaseController
+    public class TestController : BaseController
     {
-        private readonly IAppointmentService _appointmentService;
+        private readonly ITestService _testService;
 
-        public AppointmentController(IAppointmentService appointmentService)
+        public TestController(ITestService testService)
         {
-            _appointmentService = appointmentService;
+            _testService = testService;
         }
 
         [HttpGet]
         [Route("GetAll")]
         public ActionResult<IQueryable<Test>> GetAll()
         {
-            var response = _appointmentService.GetAll();
+            var response = _testService.GetAll();
 
             if (!response.Any())
             {
@@ -32,7 +32,7 @@ namespace DoctorLife.Controller
         [Route("GetById")]
         public ActionResult<Test> Get(long id)
         {
-            var response = _appointmentService.GetById(id);
+            var response = _testService.GetById(id);
 
             if (response == null)
             {

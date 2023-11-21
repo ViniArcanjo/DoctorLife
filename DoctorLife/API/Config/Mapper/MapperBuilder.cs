@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
-using DoctorLife.Config.Mapper.Profiles;
+using DoctorLife.API.Config.Mapper.Profiles;
 
-namespace DoctorLife.Config.Mapper
+namespace DoctorLife.API.Config.Mapper
 {
     public static class MapperBuilder
     {
