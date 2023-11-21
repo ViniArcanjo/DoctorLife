@@ -20,9 +20,10 @@ namespace DoctorLife.DL.Model
         public DateTime? TestDate { get; set; }
 
         [Column("APPOINTMENTSID")]
+        [ForeignKey(nameof(Appointment))]
         public long AppointmentId { get; set; }
 
         [NotMapped]
-        public Appointment? Appointment { get; set; }
+        public virtual Appointment? Appointment { get; set; }
     }
 }

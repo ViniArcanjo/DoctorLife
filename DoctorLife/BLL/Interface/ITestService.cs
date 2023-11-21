@@ -1,5 +1,4 @@
-﻿using DoctorLife.DL.DTO.Request;
-using DoctorLife.DL.Model;
+﻿using DoctorLife.DL.Model;
 
 namespace DoctorLife.BLL.Interface
 {

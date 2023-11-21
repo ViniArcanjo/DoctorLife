@@ -28,6 +28,7 @@ namespace DoctorLife.Config
             services.AddScoped<IPatientService, PatientService>();
             services.AddScoped<IDoctorService, DoctorService>();
             services.AddScoped<ITestService, TestService>();
+            services.AddScoped<IAppointmentService, AppointmentService>();
             services.AddScoped<ILoginService, LoginService>();
 
             services.AddScoped<ITokenService, TokenService>();
@@ -62,6 +63,7 @@ namespace DoctorLife.Config
             services.AddScoped<IPatientRepository, PatientRepository>();
             services.AddScoped<IDoctorRepository, DoctorRepository>();
             services.AddScoped<ITestRepository, TestRepository>();
+            services.AddScoped<IAppointmentRepository, AppointmentRepository>();
         }
 
         private static void ConfigureValidation(this IServiceCollection services)

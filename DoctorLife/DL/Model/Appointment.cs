@@ -11,17 +11,25 @@ namespace DoctorLife.DL.Model
         public long AppointmentId { get; set; }
 
         [Column("DOCTORID")]
+        [ForeignKey(nameof(Doctor))]
         public long DoctorId { get; set; }
 
-        public Doctor? Doctor { get; set; }
+        [NotMapped]
+        public virtual Doctor? Doctor { get; set; }
 
         [Column("PATIENTID")]
+        [ForeignKey(nameof(Patient))]
         public long PatientId { get; set; }
 
-        public Patient? Patient { get; set; }
+        [NotMapped]
+        public virtual Patient? Patient { get; set; }
 
         [Column("TESTID")]
+        [ForeignKey(nameof(Test))]
         public long? TestId { get; set; }
+
+        [NotMapped]
+        public virtual Test? Test { get; set; }
 
         [Column("APPOINTMENT_DATE")]
         public DateTime AppointmentDate { get; set; }

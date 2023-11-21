@@ -25,8 +25,7 @@ namespace DoctorLife.DL.Model
         [Column("EMAIL")]
         public string Email { get; set; }
 
-        //[Column("PASSWORD")]
-        [NotMapped]
+        [Column("PASSWORD")]
         public string Password { get; set; }
     }
 }

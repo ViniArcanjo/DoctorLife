@@ -1,6 +1,7 @@
 using DoctorLife.Config;
 using DoctorLife.DAL.Base;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
 
 namespace DoctorLife
 {
@@ -12,7 +13,37 @@ namespace DoctorLife
 
             builder.Services.AddControllers();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+            builder.Services.AddSwaggerGen(
+            //    opt =>
+            //{
+            //    opt.SwaggerDoc("v1", new OpenApiInfo { Title = "Doctor Life API", Version = "v1" });
+
+            //    opt.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+            //    {
+            //        In = ParameterLocation.Header,
+            //        Description = "Please, enter a valid token.",
+            //        Name = "Authorization",
+            //        Type = SecuritySchemeType.Http,
+            //        BearerFormat = "JWT",
+            //        Scheme = "Bearer"
+            //    });
+
+            //    opt.AddSecurityRequirement(new OpenApiSecurityRequirement
+            //    {
+            //        {
+            //            new OpenApiSecurityScheme
+            //            {
+            //                Reference = new OpenApiReference
+            //                {
+            //                    Type = ReferenceType.SecurityScheme,
+            //                    Id = "Bearer"
+            //                }
+            //            },
+            //            new string[]{}
+            //        }
+            //    });
+            //}
+            );
 
             builder.Services.AddDbContext<Context>(options => options.UseOracle(builder.Configuration.GetConnectionString("Oracle")));
             builder.Services.ConfigureScoped(builder.Configuration);
@@ -27,10 +58,8 @@ namespace DoctorLife
 
             app.UseHttpsRedirection();
 
+            app.UseAuthentication();
             app.UseAuthorization();
-            app.UseAuthorization();
-
-            
 
             app.MapControllers();
 

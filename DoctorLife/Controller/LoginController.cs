@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace DoctorLife.Controller
 {
     [ApiController]
-    [Route("v1/[controller]")]
+    [Route("api/v1/doctorlife/[controller]")]
     public class LoginController : ControllerBase
     {
         private readonly ITokenService _tokenService;
@@ -32,7 +32,7 @@ namespace DoctorLife.Controller
 
             var token = _tokenService.GenerateToken(request);
 
-            return Ok(new { User = user, Token = token });
+            return Ok(new { Token = token });
         }
     }
 }

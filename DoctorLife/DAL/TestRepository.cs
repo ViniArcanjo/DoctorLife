@@ -12,14 +12,16 @@ namespace DoctorLife.DAL
         public List<Test> GetAllTests()
         {
             var result = GetAll()
-                .Include(test => test.Appointment)
                 .ToList();
+
             return result;
         }
 
         public Test GetTestById(long id)
         {
-            var result = Get(test => test.TestId == id).FirstOrDefault();
+            var result = Get(test => test.TestId == id)
+                .FirstOrDefault();
+
             return result;
         }
 
