@@ -24,13 +24,6 @@ namespace DoctorLife.DL.Model
         [NotMapped]
         public virtual Patient? Patient { get; set; }
 
-        [Column("TESTID")]
-        [ForeignKey(nameof(Test))]
-        public long? TestId { get; set; }
-
-        [NotMapped]
-        public virtual Test? Test { get; set; }
-
         [Column("APPOINTMENT_DATE")]
         public DateTime AppointmentDate { get; set; }
     }

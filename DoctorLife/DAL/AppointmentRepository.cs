@@ -22,7 +22,6 @@ namespace DoctorLife.DAL
         public Appointment GetAppointmentById(long id)
         {
             var result = Get(appointment => appointment.AppointmentId == id)
-                .Include(appointment => appointment.Test)
                 .FirstOrDefault();
 
             return result;
