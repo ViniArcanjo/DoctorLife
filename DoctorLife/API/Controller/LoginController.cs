@@ -30,9 +30,9 @@ namespace DoctorLife.API.Controller
                 return NotFound(new { Message = "Invalid email, password or user role. Please, try again." });
             }
 
-            var token = _tokenService.GenerateToken(request);
+            var token = _tokenService.GenerateToken(request, user);
 
-            return Ok(new { User = user, Token = token });
+            return Ok(new { Token = token });
         }
     }
 }

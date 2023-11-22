@@ -16,7 +16,7 @@ namespace DoctorLife.API.Controller
 
         [HttpGet]
         [Route("GetAll")]
-        public ActionResult<IQueryable<Test>> GetAll()
+        public ActionResult<List<Appointment>> GetAll()
         {
             var response = _appointmentService.GetAll();
 
@@ -30,11 +30,39 @@ namespace DoctorLife.API.Controller
 
         [HttpGet]
         [Route("GetById")]
-        public ActionResult<Test> Get(long id)
+        public ActionResult<Appointment> Get(long id)
         {
             var response = _appointmentService.GetById(id);
 
             if (response == null)
+            {
+                return NotFound(response);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpGet]
+        [Route("GetByPatientCpf")]
+        public ActionResult<List<Appointment>> GetByCpf(string cpf)
+        {
+            var response = _appointmentService.GetByPatientCpf(cpf);
+
+            if (!response.Any())
+            {
+                return NotFound(response);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpGet]
+        [Route("GetByDoctorCrm")]
+        public ActionResult<List<Appointment>> GetByCrm(string crm)
+        {
+            var response = _appointmentService.GetByDoctorCrm(crm);
+
+            if (!response.Any())
             {
                 return NotFound(response);
             }

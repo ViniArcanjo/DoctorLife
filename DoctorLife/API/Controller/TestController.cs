@@ -1,4 +1,5 @@
 ﻿using DoctorLife.API.Controller.Base;
+using DoctorLife.BLL;
 using DoctorLife.BLL.Interface;
 using DoctorLife.DL.Model;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +17,7 @@ namespace DoctorLife.API.Controller
 
         [HttpGet]
         [Route("GetAll")]
-        public ActionResult<IQueryable<Test>> GetAll()
+        public ActionResult<List<Test>> GetAll()
         {
             var response = _testService.GetAll();
 
@@ -35,6 +36,34 @@ namespace DoctorLife.API.Controller
             var response = _testService.GetById(id);
 
             if (response == null)
+            {
+                return NotFound(response);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpGet]
+        [Route("GetByPatientCpf")]
+        public ActionResult<List<Test>> GetByCpf(string cpf)
+        {
+            var response = _testService.GetByPatientCpf(cpf);
+
+            if (!response.Any())
+            {
+                return NotFound(response);
+            }
+
+            return Ok(response);
+        }
+
+        [HttpGet]
+        [Route("GetByDoctorCrm")]
+        public ActionResult<List<Test>> GetByCrm(string crm)
+        {
+            var response = _testService.GetByDoctorCrm(crm);
+
+            if (!response.Any())
             {
                 return NotFound(response);
             }
