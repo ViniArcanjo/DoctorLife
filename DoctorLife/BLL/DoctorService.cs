@@ -29,6 +29,12 @@ namespace DoctorLife.BLL
             return result;
         }
 
+        public Doctor? GetByCrm(string crm)
+        {
+            var result = _doctorRepository.GetByDoctorCrm(crm);
+            return result;
+        }
+
         public Doctor? GetCredentials(string email, string password)
         {
             var result = _doctorRepository.GetDoctorCredentials(email, password);

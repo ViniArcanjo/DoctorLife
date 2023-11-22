@@ -9,11 +9,13 @@ namespace DoctorLife.BLL
     {
         private readonly ITestRepository _testRepository;
         private readonly IMapper _mapper;
+        private readonly IAppointmentService _appointmentService;
 
-        public TestService(ITestRepository testRepository, IMapper mapper)
+        public TestService(ITestRepository testRepository, IMapper mapper, IAppointmentService appointmentService)
         {
             _testRepository = testRepository;
             _mapper = mapper;
+            _appointmentService = appointmentService;
         }
  
         public List<Test> GetAll()
@@ -27,23 +29,45 @@ namespace DoctorLife.BLL
             var result = _testRepository.GetTestById(id);
             return result;
         }
+
         public List<Test> GetByPatientCpf(string patientCpf)
         {
-            var result = _testRepository.GetTestsByPatientCpf(patientCpf);
+            var appointments = _appointmentService.GetByPatientCpf(patientCpf);
+
+            if (!appointments.Any())
+            {
+                return new List<Test>();
+            }
+
+            var result = _testRepository.GetTestsByAppointments(appointments);
 
             return result;
         }
 
         public List<Test> GetByDoctorCrm(string doctorCrm)
         {
-            var result = _testRepository.GetTestsByDoctorCrm(doctorCrm);
+            var appointments = _appointmentService.GetByDoctorCrm(doctorCrm);
+
+            if (!appointments.Any())
+            {
+                return new List<Test>();
+            }
+
+            var result = _testRepository.GetTestsByAppointments(appointments);
 
             return result;
         }
 
         public List<Test> GetByAppointmentId(long appoitmentId)
         {
-            var result = _testRepository.GetTestsByAppointmentId(appoitmentId);
+            var appointment = _appointmentService.GetById(appoitmentId);
+
+            if (appointment == null)
+            {
+                return new List<Test>();
+            }
+
+            var result = _testRepository.GetTestsByAppointments(new List<Appointment> { appointment });
 
             return result;
         }

@@ -1,7 +1,7 @@
-﻿using DoctorLife.DAL.Base;
+﻿using DoctorLife.BLL.Interface;
+using DoctorLife.DAL.Base;
 using DoctorLife.DAL.Interface;
 using DoctorLife.DL.Model;
-using Microsoft.EntityFrameworkCore;
 
 namespace DoctorLife.DAL
 {
@@ -25,24 +25,20 @@ namespace DoctorLife.DAL
             return result;
         }
 
-        public List<Test> GetTestsByPatientCpf(string patientCpf)
+        public List<Test> GetTestsByAppointments(List<Appointment> appointments)
         {
-            var result = Get(test => test.Appointment.Patient.Cpf == patientCpf)
-                .ToList();
+            var result = new List<Test>();
 
-            return result;
-        }
+            foreach (var appointment in appointments)
+            {
+                var test = Get(test => test.AppointmentId == appointment.AppointmentId).FirstOrDefault();
 
-        public List<Test> GetTestsByDoctorCrm(string doctorCrm)
-        {
-            var result = Get(test => test.Appointment.Doctor.Crm == doctorCrm).ToList();
-
-            return result;
-        }
-
-        public List<Test> GetTestsByAppointmentId(long appoitmentId)
-        {
-            var result = Get(test => test.Appointment.AppointmentId == appoitmentId).ToList();
+                if (test != null)
+                {
+                    test.Appointment = appointment;
+                    result.Add(test);
+                }
+            }
 
             return result;
         }

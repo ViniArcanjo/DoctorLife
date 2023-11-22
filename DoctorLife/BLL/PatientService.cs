@@ -30,6 +30,12 @@ namespace DoctorLife.BLL
             return result;
         }
 
+        public Patient? GetByCpf(string cpf)
+        {
+            var result = _patientRepository.GetPatientByCpf(cpf);
+            return result;
+        }
+
         public Patient? GetCredentials(string email, string password)
         {
             var result = _patientRepository.GetPatientCredentials(email, password);

@@ -17,6 +17,15 @@ namespace DoctorLife.DAL.Base
             modelBuilder.Entity<Appointment>()
                 .ToTable("TB_APPOINTMENTS");
 
+            //modelBuilder.Entity<Appointment>()
+            //    .Navigation(x => x.Patient).AutoInclude();
+            
+            //modelBuilder.Entity<Appointment>()
+            //    .Navigation(x => x.Doctor).AutoInclude();
+
+            //modelBuilder.Entity<Appointment>()
+            //    .Navigation(x => x.Test).AutoInclude();
+
             modelBuilder.Entity<Doctor>()
                 .ToTable("TB_DOCTORS");
 
@@ -25,6 +34,9 @@ namespace DoctorLife.DAL.Base
 
             modelBuilder.Entity<Test>()
                 .ToTable("TB_TESTS");
+
+            //modelBuilder.Entity<Test>()
+            //    .Navigation(x => x.Appointment).AutoInclude();
         }
     }
 }

@@ -6,7 +6,7 @@ namespace DoctorLife.DAL.Interface
     {
         List<Appointment> GetAllAppointments();
         Appointment GetAppointmentById(long id);
-        List<Appointment> GetAppointmentsByDoctorCrm(string doctorCrm);
-        List<Appointment> GetAppointmentsByPatientCpf(string patientCpf);
+        List<Appointment> GetAppointmentsByDoctorCrm(Doctor doctor);
+        List<Appointment> GetAppointmentsByPatientCpf(Patient patient);
     }
 }

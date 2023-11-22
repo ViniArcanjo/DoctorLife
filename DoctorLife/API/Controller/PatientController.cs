@@ -41,5 +41,19 @@ namespace DoctorLife.API.Controller
 
             return Ok(response);
         }
+
+        [HttpGet]
+        [Route("GetByCpf")]
+        public ActionResult<Patient> GetByCpf(string cpf)
+        {
+            var response = _patientService.GetByCpf(cpf);
+
+            if (response == null)
+            {
+                return NotFound(response);
+            }
+
+            return Ok(response);
+        }
     }
 }

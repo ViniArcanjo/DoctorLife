@@ -32,6 +32,18 @@ namespace DoctorLife.DAL
             return result;
         }
 
+        public Doctor? GetByDoctorCrm(string crm)
+        {
+            var result = Get(doctor => doctor.Crm!.ToLower() == crm.ToLower()).FirstOrDefault();
+
+            if (result != null)
+            {
+                result.Password = string.Empty;
+            }
+
+            return result;
+        }
+
         public Doctor? GetDoctorCredentials(string email, string password)
         {
             var result = Get(doctor => doctor.Password == password && doctor.Email.ToLower() == email.ToLower()).FirstOrDefault();

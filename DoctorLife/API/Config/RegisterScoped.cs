@@ -26,8 +26,8 @@ namespace DoctorLife.API.Config
             services.AddSingleton(MapperBuilder.Build());
             services.AddScoped<IPatientService, PatientService>();
             services.AddScoped<IDoctorService, DoctorService>();
-            services.AddScoped<ITestService, TestService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
+            services.AddScoped<ITestService, TestService>();
             services.AddScoped<ILoginService, LoginService>();
 
             services.AddScoped<ITokenService, TokenService>();

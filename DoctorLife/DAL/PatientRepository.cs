@@ -11,12 +11,36 @@ namespace DoctorLife.DAL
         public List<Patient> GetAllPatients()
         {
             var result = GetAll().ToList();
+
+            foreach (var patient in  result)
+            {
+                patient.Password = string.Empty;
+            }
+
             return result;
         }
 
         public Patient? GetPatientById(long id)
         {
             var result = Get(patient => patient.PatientId == id).FirstOrDefault();
+
+            if (result != null)
+            {
+                result.Password = string.Empty;
+            }
+
+            return result;
+        }
+
+        public Patient? GetPatientByCpf(string cpf)
+        {
+            var result = Get(patient => patient.Cpf!.ToLower() == cpf).FirstOrDefault();
+
+            if (result != null)
+            {
+                result.Password = string.Empty;
+            }
+
             return result;
         }
 
