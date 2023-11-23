@@ -4,6 +4,7 @@
     {
         public string Email { get; set; }
         public string Name { get; set; }
+        public char Gender { get; set; }
         public bool IsActive { get; set; }
         public string? Cpf { get; set; }
         public DateTime? BirthDay { get; set; }

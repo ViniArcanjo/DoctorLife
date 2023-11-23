@@ -29,6 +29,7 @@ namespace DoctorLife.BLL
                 {
                     new Claim("Name", user.Name),
                     new Claim(ClaimTypes.Email, loginRequest.Email),
+                    new Claim("Gender", user.Gender.ToString()),
                     new Claim("IsActive", user.IsActive.ToString()),
                     new Claim("Cpf", user.Cpf ?? string.Empty),
                     new Claim("BirthDay", user.BirthDay.ToString() ?? string.Empty),
