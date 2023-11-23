@@ -19,7 +19,7 @@ namespace DoctorLife.DAL.Base
 
             //modelBuilder.Entity<Appointment>()
             //    .Navigation(x => x.Patient).AutoInclude();
-            
+
             //modelBuilder.Entity<Appointment>()
             //    .Navigation(x => x.Doctor).AutoInclude();
 

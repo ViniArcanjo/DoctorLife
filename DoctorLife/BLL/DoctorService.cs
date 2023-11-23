@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using DoctorLife.BLL.Interface;
 using DoctorLife.DAL.Interface;
-using DoctorLife.DL.DTO.Request;
 using DoctorLife.DL.Model;
 
 namespace DoctorLife.BLL
@@ -16,7 +15,7 @@ namespace DoctorLife.BLL
             _doctorRepository = doctorRepository;
             _mapper = mapper;
         }
- 
+
         public List<Doctor> GetAll()
         {
             var result = _doctorRepository.GetAllDoctors();

@@ -1,9 +1,6 @@
-﻿using DoctorLife.BLL.Interface;
-using DoctorLife.DAL.Base;
+﻿using DoctorLife.DAL.Base;
 using DoctorLife.DAL.Interface;
 using DoctorLife.DL.Model;
-using Microsoft.EntityFrameworkCore;
-using System.Numerics;
 
 namespace DoctorLife.DAL
 {

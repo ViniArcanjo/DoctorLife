@@ -1,5 +1,4 @@
 ﻿using DoctorLife.API.Controller.Base;
-using DoctorLife.BLL;
 using DoctorLife.BLL.Interface;
 using DoctorLife.DL.Model;
 using Microsoft.AspNetCore.Mvc;

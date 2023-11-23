@@ -1,8 +1,6 @@
 ﻿using AutoMapper;
 using DoctorLife.BLL.Interface;
-using DoctorLife.DAL;
 using DoctorLife.DAL.Interface;
-using DoctorLife.DL.DTO.Request;
 using DoctorLife.DL.Model;
 
 namespace DoctorLife.BLL

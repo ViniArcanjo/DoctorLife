@@ -17,7 +17,7 @@ namespace DoctorLife.BLL
             _mapper = mapper;
             _appointmentService = appointmentService;
         }
- 
+
         public List<Test> GetAll()
         {
             var result = _testRepository.GetAllTests();

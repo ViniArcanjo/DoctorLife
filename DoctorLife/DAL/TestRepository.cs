@@ -1,5 +1,4 @@
-﻿using DoctorLife.BLL.Interface;
-using DoctorLife.DAL.Base;
+﻿using DoctorLife.DAL.Base;
 using DoctorLife.DAL.Interface;
 using DoctorLife.DL.Model;
 
@@ -8,7 +7,7 @@ namespace DoctorLife.DAL
     public class TestRepository : BaseRepository<Test>, ITestRepository
     {
         public TestRepository(Context context) : base(context) { }
-        
+
         public List<Test> GetAllTests()
         {
             var result = GetAll()

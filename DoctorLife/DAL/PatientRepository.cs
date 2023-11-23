@@ -7,12 +7,12 @@ namespace DoctorLife.DAL
     public class PatientRepository : BaseRepository<Patient>, IPatientRepository
     {
         public PatientRepository(Context context) : base(context) { }
-        
+
         public List<Patient> GetAllPatients()
         {
             var result = GetAll().ToList();
 
-            foreach (var patient in  result)
+            foreach (var patient in result)
             {
                 patient.Password = string.Empty;
             }
