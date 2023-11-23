@@ -6,6 +6,7 @@ namespace DoctorLife.BLL.Interface
     {
         List<Patient> GetAll();
         Patient? GetByCpf(string cpf);
+        List<Patient> GetByDoctorCrm(string crm);
         Patient? GetById(long id);
         Patient? GetCredentials(string email, string password);
     }

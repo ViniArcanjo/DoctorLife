@@ -55,5 +55,19 @@ namespace DoctorLife.API.Controller
 
             return Ok(response);
         }
+
+        [HttpGet]
+        [Route("GetByDoctorCrm")]
+        public ActionResult<List<Patient>> GetByDoctorCrm(string crm)
+        {
+            var response = _patientService.GetByDoctorCrm(crm);
+
+            if (!response.Any())
+            {
+                return NotFound(response);
+            }
+
+            return Ok(response);
+        }
     }
 }

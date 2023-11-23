@@ -16,8 +16,8 @@ namespace DoctorLife.API.Config
     {
         public static void ConfigureScoped(this IServiceCollection services, IConfiguration configuration)
         {
-            services.ConfigureServices(configuration);
             services.ConfigureRepository();
+            services.ConfigureServices(configuration);
             services.ConfigureValidation();
         }
 
