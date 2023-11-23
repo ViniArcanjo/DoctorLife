@@ -10,6 +10,12 @@ namespace DoctorLife.DL.Model
         [Column("APPOINTMENTSID")]
         public long AppointmentId { get; set; }
 
+        [Column("TITLE")]
+        public string? Title { get; set; }
+
+        [Column("DESCRIPTION")]
+        public string? Description { get; set; }
+
         [Column("DOCTORID")]
         [ForeignKey(nameof(Doctor))]
         public long DoctorId { get; set; }

@@ -13,7 +13,7 @@ namespace DoctorLife.DL.Model
         [Column("TITLE")]
         public string? Title { get; set; }
 
-        [Column("TEST_DESCRIPTION")]
+        [Column("DESCRIPTION")]
         public string? Description { get; set; }
 
         [Column("TEST_DATE")]

@@ -22,6 +22,9 @@ namespace DoctorLife.DL.Model
         [Column("PROFILEPICURL")]
         public string? ProfilePicUrl { get; set; }
 
+        [Column("GENDER")]
+        public char Gender { get; set; }
+
         [Column("EMAIL")]
         public string Email { get; set; }
 
