@@ -28,6 +28,7 @@ namespace DoctorLife.BLL
                 Subject = new ClaimsIdentity(new[]
                 {
                     new Claim("Name", user.Name),
+                    new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
                     new Claim(ClaimTypes.Email, loginRequest.Email),
                     new Claim("Gender", user.Gender.ToString()),
                     new Claim("IsActive", user.IsActive.ToString()),

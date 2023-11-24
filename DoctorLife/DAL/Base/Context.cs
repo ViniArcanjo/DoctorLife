@@ -17,6 +17,9 @@ namespace DoctorLife.DAL.Base
             modelBuilder.Entity<Appointment>()
                 .ToTable("TB_APPOINTMENTS");
 
+            modelBuilder.Entity<Appointment>()
+                .HasKey(appointment => appointment.AppointmentId);
+
             //modelBuilder.Entity<Appointment>()
             //    .Navigation(x => x.Patient).AutoInclude();
 

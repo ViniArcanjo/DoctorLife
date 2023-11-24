@@ -7,6 +7,7 @@ namespace DoctorLife.DL.Model
     public class Appointment : EntityAuditBase
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("APPOINTMENTSID")]
         public long AppointmentId { get; set; }
 
