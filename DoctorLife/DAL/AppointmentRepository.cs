@@ -1,5 +1,6 @@
 ﻿using DoctorLife.DAL.Base;
 using DoctorLife.DAL.Interface;
+using DoctorLife.DL.DTO.Request;
 using DoctorLife.DL.Model;
 
 namespace DoctorLife.DAL
@@ -48,6 +49,12 @@ namespace DoctorLife.DAL
             }
 
             return result;
+        }
+
+        public async Task CreateAppointment(Appointment appointment)
+        {
+            Add(appointment);
+            await SaveAll();
         }
     }
 }

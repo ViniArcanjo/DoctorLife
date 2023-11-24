@@ -1,7 +1,10 @@
 ﻿using AutoMapper;
 using DoctorLife.BLL.Interface;
 using DoctorLife.DAL.Interface;
+using DoctorLife.DL.DTO.Request;
 using DoctorLife.DL.Model;
+using DoctorLife.INFRA.Const;
+using DoctorLife.INFRA.Utils;
 
 namespace DoctorLife.BLL
 {
@@ -78,6 +81,29 @@ namespace DoctorLife.BLL
             }
 
             return result;
+        }
+
+        public async Task<MethodMessage> Create(CreateAppointmentRequest request)
+        {
+            var doctor = _doctorService.GetById(request.DoctorId);
+            var patient = _patientService.GetById(request.PatientId);
+
+            if (doctor == null)
+            {
+                return new MethodMessage(true, "Doctor not found");
+            }
+
+            if (patient == null)
+            {
+                return new MethodMessage(true, "Patient not found");
+            }
+
+            var appointment = _mapper.Map<Appointment>(request);
+            EntityHelper.UpsertAuditInfo(appointment);
+
+            await _appointmentRepository.CreateAppointment(appointment);
+
+            return new MethodMessage();
         }
     }
 }

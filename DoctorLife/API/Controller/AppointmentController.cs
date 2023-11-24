@@ -1,5 +1,6 @@
 ﻿using DoctorLife.API.Controller.Base;
 using DoctorLife.BLL.Interface;
+using DoctorLife.DL.DTO.Request;
 using DoctorLife.DL.Model;
 using Microsoft.AspNetCore.Mvc;
 
@@ -68,6 +69,15 @@ namespace DoctorLife.API.Controller
             }
 
             return Ok(response);
+        }
+
+        [HttpPost]
+        [Route("Create")]
+        public async Task<ActionResult> Post(CreateAppointmentRequest request)
+        {
+            var result = await _appointmentService.Create(request);
+
+            return result.IsError ? BadRequest(result.Message) : Ok();
         }
     }
 }

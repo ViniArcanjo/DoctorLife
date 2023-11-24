@@ -11,6 +11,7 @@ namespace DoctorLife.API.Config.Mapper
             {
                 mc.AddProfile(new DoctorProfile());
                 mc.AddProfile(new PatientProfile());
+                mc.AddProfile(new AppointmentProfile());
             });
 
             return mapperConfig.CreateMapper();

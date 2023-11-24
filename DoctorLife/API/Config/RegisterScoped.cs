@@ -24,6 +24,7 @@ namespace DoctorLife.API.Config
         private static void ConfigureServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddSingleton(MapperBuilder.Build());
+
             services.AddScoped<IPatientService, PatientService>();
             services.AddScoped<IDoctorService, DoctorService>();
             services.AddScoped<IAppointmentService, AppointmentService>();
@@ -67,7 +68,7 @@ namespace DoctorLife.API.Config
 
         private static void ConfigureValidation(this IServiceCollection services)
         {
-            services.AddScoped<IValidator<CreatePatientRequest>, CreatePatientRequestValidation>();
+            services.AddScoped<IValidator<CreateAppointmentRequest>, CreateAppointmentRequestValidation>();
         }
     }
 }
