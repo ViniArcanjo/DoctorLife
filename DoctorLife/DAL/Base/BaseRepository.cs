@@ -10,6 +10,7 @@ namespace DoctorLife.DAL.Base
         public BaseRepository(Context dbContext)
         {
             _dbContext = dbContext;
+            _dbContext.ChangeTracker.AutoDetectChangesEnabled = false;
         }
 
         public IQueryable<TEntity> GetAll()
