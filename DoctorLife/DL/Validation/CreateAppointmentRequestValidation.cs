@@ -19,10 +19,6 @@ namespace DoctorLife.DL.Validation
                 .NotEmpty()
                 .NotNull();
 
-            RuleFor(request => request.Description)
-                .NotEmpty()
-                .NotNull();
-
             RuleFor(request => request.Date)
                 .NotNull()
                 .GreaterThan(DateTime.Today);
